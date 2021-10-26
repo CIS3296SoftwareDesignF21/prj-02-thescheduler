@@ -1,13 +1,23 @@
-# Project 
+## Project ## 
+ The Scheduler
+ 
+## How to Run ##
 
-# How to Run
+## How to Install ##
 
-# How to Install
+## Members ##
 
-# Members
+Felix Rabinovich 
+
 Abin Cheriyan
 
 Ethan Lewis
+
+Dylan Dunda
+
+Erik Rodriguez
+
+Ryan Babala
 
 
 
