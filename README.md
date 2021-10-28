@@ -12,7 +12,7 @@ issues during the scheduling process (I.E. Class is full, Time constraints, etc.
 Scheduler will sign the student up for the courses based on temple recommended timeline (This will be done using a web scrapper to pull the recommend course timeline from the 
 bulletin and then populate it into the program).
 
-**Installation Instructions**
+**Installation Instructions**: http://thescheduler.pythonanywhere.com/
 
 **How to Build**
 
