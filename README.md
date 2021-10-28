@@ -1,6 +1,6 @@
-## Project ##
+## Project Overview ##
 
-The Scheduler
+_**The Scheduler**_
 
 **Description**: The Scheduler is a web app that's automates the process of signing up for classes.
 
@@ -11,6 +11,12 @@ and my team are going to intergrate two major components. The first major compon
 issues during the scheduling process (I.E. Class is full, Time constraints, etc.). The second will be to give the user the option to simply insert their major and then The 
 Scheduler will sign the student up for the courses based on temple recommended timeline (This will be done using a web scrapper to pull the recommend course timeline from the 
 bulletin and then populate it into the program).
+
+**Installation Instructions**
+
+**How to Build**
+
+**Vision Statement**
  
 ## How to Run ##
 
