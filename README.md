@@ -38,6 +38,11 @@ Tom's experience with computer science concepts at Temple combined with his own 
 
 Sylvia, age 18, is a freshman at Temple University. She is new to both Temple and the city of Philadelphia, and she is learning her ways around the school as well as the city. Sylvia is enrolled in the "Fly in 4" program and plans to graduate with a bachelor’s degree in 4 years or less. The registration day is close, and Sylvia has yet to create a plan for next semester. Sylvia is taking 18 credits this semester and is always busy with classwork and because of that, she hasn’t been able to make any friends. She doesn’t know which classes she has to take and is stressed out not knowing what to do and she doesn’t have any friends to ask for help regarding these things. Sylvia wishes for an app or a web app she can use, that will give her plans based on her major or time preferences.
 
+***
+**Jacob, a CJ senior**
+***
+
+Jacob, age 22 and a criminal justice senior, works multiple jobs and pays for his own tuition by working overnight shifts. He barely has enough time to do school work or study. Because Jacob is focused on graduation, writing thesis papers for his law classes, and dealing with overnight shifts, he hasent even bothered trying to figure out the classes he needs to schedule. Because it's his last year, and he put in the work to pass all of his classes in previous years on time, he is over the credit limit by quite a lot, so he has some breathing room in what classes he can choose from. Because of this, Jacob would greatly benefit from a system that could easily and seamlessly schedule his classes for him based on his preferences for classes  that dont relate to criminal justice since he has that breathing room along with picking the right capstone class at his allotted time for him.
 
 
 ## Trello ##
