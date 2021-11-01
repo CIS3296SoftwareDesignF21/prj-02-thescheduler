@@ -27,8 +27,6 @@ bulletin and then populate it into the program).
 **Step 5**: Uppload necessary files to Host site, and update web page
 
 ## Vision Statement ##
- 
-## How to Run ##: Visit website posted above.
 
 ## Members ##
 
