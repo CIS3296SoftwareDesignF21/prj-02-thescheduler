@@ -14,7 +14,7 @@ bulletin and then populate it into the program).
 
 **Installation Instructions**: http://thescheduler.pythonanywhere.com/
 
-**How to Build**
+## How to Build ##
 
 **Step 1**: Download python IDE of choice. (For this project we used Pycharm by JetBrains)
 
@@ -26,7 +26,7 @@ bulletin and then populate it into the program).
 
 **Step 5**: Uppload necessary files to Host site, and update web page
 
-**Vision Statement**
+## Vision Statement ##
  
 ## How to Run ##: Visit website posted above.
 
