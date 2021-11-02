@@ -15,6 +15,9 @@
 ### Dylan Dunda ###
 
 ### Erik Rodriguez ###
+- Added to HelloWorld.py
+- Wrote Rachel's Persona
+- Got environment up and running (installed Flask + Selenium)
 
 ### Ryan Babala ###
 - Added to HelloWorld.py
