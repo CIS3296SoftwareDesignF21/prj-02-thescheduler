@@ -1,7 +1,9 @@
 ### Felix Rabinovich ###
 
 ### Abin Cheriyan ###
-
+- Added to HelloWorld.py
+- Wrote Sylvia's Persona
+- Added to Week1.md
 ### Ethan Lewis ###
 
 ### Dylan Dunda ###
