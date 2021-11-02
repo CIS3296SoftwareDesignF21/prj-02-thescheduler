@@ -92,7 +92,11 @@ take for his major, and is worried that he will miss priorty registration thus m
 needs.Tony has been asking faculty if there is a application that will register course for him in a timely manner and recommend ones he 
 should take for his major. 
 
+***
+**Andrew, Business Freshman**
+***
 
+Andrew is a freshman, undeclared business student at Temple University. He's a bit of a procrastinator, but has no problems doing everything he needs to pass his classes. Unfortunately, his priority registration date is tomorrow, and he never scheduled a meeting with an advisor to help schedule his classes. Being an undeclared sttudent, he can't find any information to help him pick any specific classes. Even though he lives on campus and doesn't have any time restrictions, he's lost, and has no clue what classes to take. He's fine with taking any classes at any time, but at this point ahe can't quite figure out exactly what classes he can take to fulfill certain requirements and graduate on time.
 
 ## Trello ##
 https://trello.com/b/iZgkH5XX/the-scheduler
