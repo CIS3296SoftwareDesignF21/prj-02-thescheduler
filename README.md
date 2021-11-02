@@ -80,10 +80,10 @@ Rachel, age 23 is an Anthropology senior, works a part time job outside of schoo
 ***
 
 Tony, age 20 is a Junior who recently transfered to Temple Universuty, seeking a degree in Graphic Design.
-This is Tony's first time in philadelphia. Tony has hasnt been given a rundown on how to sign up for classes 
-and is not familiar with temple system. He is very stressed because he does not know which classes he needs to take,
-and is worried that he will miss priorty registration thus missing the oppertunity to sign up for classes that he 
-needs.Tony has been asking faculty if there is a website that will register course for him and recommend ones he 
+This is Tony's first time in philadelphia and interacting with any of Temple registration features. Tony was not given a proper rundown 
+on how to sign up for classes and is not familiar with temple system. He is very stressed because he does not know which classes he needs to 
+take for his major, and is worried that he will miss priorty registration thus missing the oppertunity to sign up for classes that he 
+needs.Tony has been asking faculty if there is a application that will register course for him in a timely manner and recommend ones he 
 should take for his major. 
 
 
