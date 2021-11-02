@@ -68,5 +68,13 @@ Sylvia, age 18, is a freshman at Temple University. She is new to both Temple an
 Jacob, age 22 and a criminal justice senior, works multiple jobs and pays for his own tuition by working overnight shifts. He barely has enough time to do school work or study. Because Jacob is focused on graduation, writing thesis papers for his law classes, and dealing with overnight shifts, he hasent even bothered trying to figure out the classes he needs to schedule. Because it's his last year, and he put in the work to pass all of his classes in previous years on time, he is over the credit limit by quite a lot, so he has some breathing room in what classes he can choose from. Because of this, Jacob would greatly benefit from a system that could easily and seamlessly schedule his classes for him based on his preferences for classes  that dont relate to criminal justice since he has that breathing room along with picking the right capstone class at his allotted time for him.
 
 
+***
+**Rachel, an Anthro senior**
+***
+
+Rachel, age 23 is an Anthropology senior, works a part time job outside of school, and commutes to school daily. She has very little free-time available to her since she's busy with classes  and clubs on top of her job which requires her to work late. Getting up at 7am for registration proves extremely difficult for her as she often doesn't get home until 2am because of work. She also has to take a very high course-load to graduate on time, normally 5-6 classes per semester. Setting up a course plan normally takes her multiple hours or sometimes several days worth of her free-time. She would benefit greatly from a system that automatically registers her classes for her in the morning. However she would benefit even more greatly from a program that could accept her desired courses and/or requirements that would then give her every possible (valid) schedule combination if any exist. This would eliminate a recurring chore that eats up a lot of her time and relieve some of the stresses she faces.
+
+
+
 ## Trello ##
 https://trello.com/b/iZgkH5XX/the-scheduler
