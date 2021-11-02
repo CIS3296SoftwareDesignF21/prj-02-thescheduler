@@ -75,6 +75,18 @@ Jacob, age 22 and a criminal justice senior, works multiple jobs and pays for hi
 Rachel, age 23 is an Anthropology senior, works a part time job outside of school, and commutes to school daily. She has very little free-time available to her since she's busy with classes  and clubs on top of her job which requires her to work late. Getting up at 7am for registration proves extremely difficult for her as she often doesn't get home until 2am because of work. She also has to take a very high course-load to graduate on time, normally 5-6 classes per semester. Setting up a course plan normally takes her multiple hours or sometimes several days worth of her free-time. She would benefit greatly from a system that automatically registers her classes for her in the morning. However she would benefit even more greatly from a program that could accept her desired courses and/or requirements that would then give her every possible (valid) schedule combination if any exist. This would eliminate a recurring chore that eats up a lot of her time and relieve some of the stresses she faces.
 
 
+***
+**Tony, Graphic Design Junior**
+***
+
+Tony, age 20 is a Junior who recently transfered to Temple Universuty, seeking a degree in Graphic Design.
+This is Tony's first time in philadelphia. Tony has hasnt been given a rundown on how to sign up for classes 
+and is not familiar with temple system. He is very stressed because he does not know which classes he needs to take,
+and is worried that he will miss priorty registration thus missing the oppertunity to sign up for classes that he 
+needs.Tony has been asking faculty if there is a website that will register course for him and recommend ones he 
+should take for his major. 
+
+
 
 ## Trello ##
 https://trello.com/b/iZgkH5XX/the-scheduler
