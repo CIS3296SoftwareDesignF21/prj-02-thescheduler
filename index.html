@@ -5,8 +5,10 @@
     <title>The Scheduler (Skeleton)</title>
     <h2>The Scheduler</h2>
 
-    <!-- Input is sent to the file specified here, currently tbd.py -->
-    <form action="/tbd.py">
+    <!-- Input is sent to the file specified here, currently HelloWorld.py -->
+    <div id="container">
+    {% block content %}
+    <form action="#" method="post">
       <label for="fdept">Course Department:</label>
         <select name="fdept" id="fdept">
             <option value="cst">CST</option>
@@ -29,10 +31,9 @@
         <input type="text" id="fcrn" name="fcrn" value="3296"><br><br>
       <input type="submit" value="Submit">
     </form>
+    {% endblock %}
+    </div>
 
-    <p>Note that the form itself is not visible.</p>
-
-    <p>Also note that the default width of text input fields is 20 characters.</p>
 
 </head>
 <body>
