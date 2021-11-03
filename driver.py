@@ -15,8 +15,8 @@ def home():
 def course_select():
     if request.method == "POST":
         dept = request.form["fdept"]
-        crn = request.form["fcrn"]
-        return redirect(url_for("post_course", department=dept, course_number=crn))
+        crs = request.form["fcrs"]
+        return redirect(url_for("post_course", department=dept, course_number=crs))
     else:
         return render_template("index.html")
 
