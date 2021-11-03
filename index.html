@@ -5,11 +5,21 @@
     <title>The Scheduler (Skeleton)</title>
     <h2>The Scheduler</h2>
 
-    <form>
-      <label for="fname">Course Dept:</label><br>
-      <input type="text" id="fname" name="fname" value=""><br>
-      <label for="lname">Course # (CRN):</label><br>
-      <input type="text" id="lname" name="lname" value="">
+    <!-- Input is sent to the file specified here, currently tbd.py -->
+    <form action="/tbd.py">
+      <label for="fdept">Course Department:</label>
+        <select name="fdept" id="fdept">
+            <option value="cst">CST</option>
+            <option value="arch">ARCH</option>
+            <option value="acct">ACCT</option>
+            <option value="bioe">BIOE</option>
+            <option value="dent">DENT</option>
+            <option value="aod">AOD</option>
+            <option value="judo">JUDO</option>
+        </select>
+      <label for="fcrn">Course Number (CRN):</label><br>
+        <input type="text" id="fcrn" name="fcrn" value="3296"><br><br>
+      <input type="submit" value="Submit">
     </form>
 
     <p>Note that the form itself is not visible.</p>
