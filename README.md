@@ -103,3 +103,6 @@ Andrew is a freshman, undeclared business student at Temple University. He's a b
 
 ## Trello ##
 https://trello.com/b/iZgkH5XX/the-scheduler
+
+## UML ##
+![](../../Desktop/Screen Shot 2021-11-07 at 10.55.02 PM.png)
