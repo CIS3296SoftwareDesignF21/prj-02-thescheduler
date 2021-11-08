@@ -7,7 +7,7 @@
 
     <!-- Input is sent to the file specified here, currently HelloWorld.py -->
     <div id="container">
-    {% block content %}
+
     <form action="#" method="post">
       <label for="fdept">Course Department:</label>
         <select name="fdept" id="fdept">
@@ -28,10 +28,9 @@
             <option value="fma">FMA</option>
         </select><br>
       <label for="fcrs">Course Number (CRN):</label>
-        <input type="text" id="fcrs" name="fcrs" value="3296"><br><br>
+        <input type="text" id="fcrs" name="fcrs" value=""><br><br>
       <input type="submit" value="Submit">
     </form>
-    {% endblock %}
     </div>
 
 
