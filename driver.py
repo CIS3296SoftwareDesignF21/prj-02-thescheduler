@@ -20,12 +20,23 @@ def course_select():
     else:
         return render_template("index.html")
 
+@app.route("/course_select", methods = ["GET"])
+def input():
+    dept = request.form["fdept"]
+    crs = request.form["fcrs"]
+    with open("test_input.txt", "w") as fo:
+        fo.write(dept , crs )
+        fo.close()
+
+
 @app.route("/<post_course>")
 def post_course(department, course_number):
     if department == "CST":
         return f"<h1>Go CST!! You're taking: {course_number}</h1>"
     else:
         return f"<h1>{department} You're taking: {course_number}</h1>"
+
+
 
 """
 @app.route("/login", methods=["POST", "GET"])
