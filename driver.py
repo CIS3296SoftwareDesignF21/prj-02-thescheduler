@@ -7,9 +7,11 @@ Used the following as a guide:
 https://www.techwithtim.net/tutorials/flask/http-methods-get-post/
 """
 
+
 @app.route("/")
 def home():
     return render_template("index.html")
+
 
 @app.route("/course_select", methods=["POST", "GET"])
 def course_select():
@@ -20,26 +22,10 @@ def course_select():
     else:
         return render_template("index.html")
 
-@app.route("/<post_course>")
+
+@app.route("/<department>&<course_number>")
 def post_course(department, course_number):
-    if department == "CST":
-        return f"<h1>Go CST!! You're taking: {course_number}</h1>"
-    else:
-        return f"<h1>{department} You're taking: {course_number}</h1>"
-
-"""
-@app.route("/login", methods=["POST", "GET"])
-def login():
-    if request.method == "POST":
-        user = request.form["nm"]
-        return redirect(url_for("user", usr=user))
-    else:
-        return render_template("login.html")
-
-@app.route("/<usr>")
-def user(usr):
-    return f"<h1>{usr}</h1>"
-"""
+    return f"<h1>Go CST!! You're taking:{department},{course_number}</h1>"
 
 
 if __name__ == "__main__":
