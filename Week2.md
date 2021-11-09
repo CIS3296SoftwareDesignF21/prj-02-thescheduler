@@ -25,6 +25,7 @@
 ### Erik Rodriguez ###
 - Created driver.py 
 - Created index.html
+- Began initial work on POST/GET
 - Added to Week2.md
 
 ### Ryan Babala ###
