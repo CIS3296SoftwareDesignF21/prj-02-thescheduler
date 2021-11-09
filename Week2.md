@@ -13,6 +13,7 @@
 ### Ethan Lewis ###
 - Created UML
 - Added to week2.md
+- Reviewed personas
 
 ### Dylan Dunda ###
 - Created HeadlessTesting.py
