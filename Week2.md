@@ -13,7 +13,7 @@
 ### Ethan Lewis ###
 - Created UML
 - Added to week2.md
-- 
+
 ### Dylan Dunda ###
 - Modified code (Selenium Headless)
 - Added to Week2.md
