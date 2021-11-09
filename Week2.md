@@ -1,5 +1,8 @@
 ### Felix Rabinovich ###
 - Major Bug Fixes
+           -  Fixed Broken HTML code
+           -  Fixed Input code (ish)
+- Merging all code together
 - Twilio support
 - Add to input.py 
 - wrote week2.md
