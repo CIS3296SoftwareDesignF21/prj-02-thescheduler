@@ -74,7 +74,7 @@ Sylvia, age 18, is a freshman at Temple University. She is new to both Temple an
 **Jacob, a CJ senior**
 ***
 
-Jacob, age 22 and a criminal justice senior, works multiple jobs and pays for his own tuition by working overnight shifts. He barely has enough time to do school work or study. Because Jacob is focused on graduation, writing thesis papers for his law classes, and dealing with overnight shifts, he hasent even bothered trying to figure out the classes he needs to schedule. Because it's his last year, and he put in the work to pass all of his classes in previous years on time, he is over the credit limit by quite a lot, so he has some breathing room in what classes he can choose from. Because of this, Jacob would greatly benefit from a system that could easily and seamlessly schedule his classes for him based on his preferences for classes  that dont relate to criminal justice since he has that breathing room along with picking the right capstone class at his allotted time for him.
+Jacob, age 22 and a criminal justice senior, works multiple jobs and pays for his own tuition by working overnight shifts. He barely has enough time to do school work or study. Because Jacob is focused on graduation, writing thesis papers for his law classes, and dealing with overnight shifts, he hasn't even bothered trying to figure out the classes he needs to schedule. Because it's his last year, and he put in the work to pass all of his classes in previous years on time, he is over the credit limit by quite a lot, so he has some breathing room in what classes he can choose from. Because of this, Jacob would greatly benefit from a system that could easily and seamlessly schedule his classes for him based on his preferences for classes  that dont relate to criminal justice since he has that breathing room along with picking the right capstone class at his allotted time for him. Jacob knows his technology and is sure that if something better than banner is out there, it can help him and others like him a lot.   
 
 
 ***
@@ -91,9 +91,9 @@ Rachel, age 23 is an Anthropology senior, works a part time job outside of schoo
 Tony, age 20 is a Junior who recently transfered to Temple Universuty, seeking a degree in Graphic Design.
 This is Tony's first time in philadelphia and interacting with any of Temple registration features. Tony was not given a proper rundown 
 on how to sign up for classes and is not familiar with temple system. He is very stressed because he does not know which classes he needs to 
-take for his major, and is worried that he will miss priorty registration thus missing the oppertunity to sign up for classes that he 
-needs.Tony has been asking faculty if there is a application that will register course for him in a timely manner and recommend ones he 
-should take for his major. 
+take for his major, and is worried that he will miss priorty registration thus missing the opportunity to sign up for classes that he 
+needs.Tony has been asking faculty if there is an application that will register course for him in a timely manner and recommend ones he 
+should take for his major. He knows the banner exists but wants to know if there something else that offers more than what banner offers, like something that gives him a plan thats already made for him. 
 
 ***
 **Andrew, Business Freshman**
