@@ -15,7 +15,7 @@
 - Added to week2.md
 
 ### Dylan Dunda ###
-- Modified code (Selenium Headless)
+- Created HeadlessTesting.py
 - Added to Week2.md
 
 ### Erik Rodriguez ###
