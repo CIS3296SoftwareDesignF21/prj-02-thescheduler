@@ -16,7 +16,7 @@
 - 
 ### Dylan Dunda ###
 - Modified code (Selenium Headless)
-- - Added to Week2.md
+- Added to Week2.md
 
 ### Erik Rodriguez ###
 - Created driver.py 
