@@ -3,7 +3,8 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 #fo = open('input_text.txt' 'w')
-PATH = "/usr/local/bin/chromedriver"
+PATH = "/usr/local/bin/chromedriver" # For MAC
+#PATH = "C:\Program Files (x86)\chromedriver.exe" # For Windows
 driver = webdriver.Chrome(PATH)
 
 #### Code to run webside
@@ -19,13 +20,13 @@ crn = course_number
 driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
 #driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
 
-'''
-select = driver.find_element_by_id("select2-drop-mask")
-select.send_keys("2022 spring")
+
+select = driver.find_element_by_class_name("select2-drop")
+select.send_keys("2022 Spring")
 
 term = driver.find_element_by_id("term-go")
 term.click
-'''
+
 
 subject = driver.find_element_by_id("select2-container")
 subject.send_keys(crs)
