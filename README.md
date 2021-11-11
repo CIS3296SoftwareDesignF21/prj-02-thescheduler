@@ -20,8 +20,8 @@ bulletin and then populate it into the program).
 
 **Step 2**: Download additional libraries (Flask,Selenium,Twilio)
 
-**Step 2B**:In order to test selenium code locally you will need to download the Chrome webdriver from here: https://sites.google.com/a/chromium.org/chromedriver/downloads
-            and place it the locations listed below.
+**Additional Step**: In order to test selenium code locally you will need to download the Chrome webdriver from here: 
+https://sites.google.com/a/chromium.org/chromedriver/downloads and place it the locations listed below.
             
                    -  Mac: /usr/local/bin/
                    
