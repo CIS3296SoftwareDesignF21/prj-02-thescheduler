@@ -20,6 +20,11 @@ bulletin and then populate it into the program).
 
 **Step 2**: Download additional libraries (Flask,Selenium,Twilio)
 
+**Step 2B**:In order to test selenium code locally you will need to download the Chrome webdriver from here: https://sites.google.com/a/chromium.org/chromedriver/downloads
+            and place it the locations listed below.
+                   -  Mac: /usr/local/bin/
+                   -  Windows: C:\Program Files (x86)
+
 **Step 3**: In order for Flask to build/Run your web app you need to add the frame work. (app = Flask(__name__) and app.run)
 
 **Step 4**: Program web wrapper pathway (I.E. code where you want the selenium code to send you)
