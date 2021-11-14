@@ -42,10 +42,10 @@ print(CourseTitle)
 time.sleep(10)  # waits 5 seconds
 
 # Dictionary storing for course info
-C1 = {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}
-C2 = {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}
-C3 = {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}
-C4 = {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}
+Schedule = {1: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
+            2: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
+            3: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
+            4: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}}
 
 # print(crs, crn, file = fo )
 driver.quit()
