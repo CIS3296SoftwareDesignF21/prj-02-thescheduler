@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>The Scheduler (Skeleton)</title>
-    <h2>The Scheduler</h2>
+    <div align="center">
+        <h2>The Scheduler</h2>
+    </div>
 
     <!-- Input is sent to the file specified here, currently HelloWorld.py -->
-    <div id="container">
+    <div id="container" align="center">
 
     <form action="/course_select" method="post">
       <label for="fdept">Course Department:</label>
@@ -27,8 +29,18 @@
             <option value="srm">SRM</option>
             <option value="fma">FMA</option>
         </select><br>
-      <label for="fcrs">Course Number (CRN):</label>
-        <input type="text" id="fcrs" name="fcrs" value="3219"><br><br>
+      <label for = "fcrs1">1st Course Number: </label>
+        <input type="text" id="fcrs1" name="fcrs1" value="3219"><br>
+
+      <label for = "fcrs2">2nd Course Number: </label>
+        <input type="text" id="fcrs2" name="fcrs2" value=""><br>
+
+      <label for = "fcrs3">3rd Course Number: </label>
+        <input type="text" id="fcrs3" name="fcrs3" value=""><br>
+
+      <label for = "fcrs4">4th Course Number: </label>
+        <input type="text" id="fcrs4" name="fcrs3" value=""><br><br>
+
       <input type="submit" value="Submit">
     </form>
     </div>
