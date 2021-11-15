@@ -2,7 +2,7 @@
 # TheScheduler
 
 import input
+import Twilio
 
-
-if __name__ == "__main__":
-    input()
+Twilio()
+input()
