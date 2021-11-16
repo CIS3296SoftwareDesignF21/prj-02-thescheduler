@@ -38,6 +38,9 @@ def post_course(department, course_number1, course_number2, course_number3, cour
            f"<h1>Go CST!! You're taking:{department},{course_number3}</h1>" \
            f"<h1>Go CST!! You're taking:{department},{course_number4}</h1>"
 
-
+def run_main():
+    import main
+    main()
+  
 if __name__ == "__main__":
     app.run(debug=True)
