@@ -7,12 +7,12 @@ from selenium.webdriver.support.ui import Select
 
 import time
 
-#PATH = "/usr/local/bin/chromedriver"
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATH = "/usr/local/bin/chromedriver"
+#PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 #### Code to run webside
-
+"""
 driver.get("https://thescheduler.pythonanywhere.com/course_select")
 
 time.sleep(2)
@@ -21,7 +21,7 @@ crs = department
 
 course_number = driver.find_element_by_id("fcrs")
 crn = course_number
-
+"""
 driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
 #driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
 
@@ -82,7 +82,6 @@ time.sleep(1)
 view_sections = driver.find_element_by_class_name("form-button.search-section-button")
 view_sections.click()
 
-
 '''
 search_again = driver.find_element_by_id("search-again-button")
 search_again.click()   Needed for loop 
@@ -101,12 +100,14 @@ print(credit_hours)
 
 time.sleep(10) # waits 5 seconds
 
+driver.quit()
+'''
 # Dictionary storing for course info
 Schedule = {1: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
             2: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
             3: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
             4: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}}
-"""
+
 classQueue is a queue implemented using deque() who's elements consist of courses.
 Classes are dict entries structured the following way: 
 
@@ -114,16 +115,16 @@ Classes are dict entries structured the following way:
 
 Example: {'Subject': 'Computer & Information Science', 'Course Number': '3296'}
 
-"""
+
 ###
-""" !! Browse Courses page must be navigated to prior to loop !!
+!! Browse Courses page must be navigated to prior to loop !!
 
 select = driver.find_element_by_class_name("select2-drop")
 select.send_keys("2022 Spring")
 
 term = driver.find_element_by_id("term-go")
 term.click
-"""
+
 def parseQueue(courseQueue):
     while courseQueue:
         currentClass = courseQueue.pop() #Store the next entry in memory, delete it from the queue
@@ -158,4 +159,4 @@ def parseQueue(courseQueue):
 # print(crs, crn, file = fo )
 driver.quit()
 # fo.close()
-
+'''
