@@ -22,3 +22,6 @@
     - Uses html scraping techniques to automate banner navigation
     - Detailed input requirements in comments
 ### Ryan Babala ###
+  - Revised Class Diagram
+  - Created Sequence Diagram
+  - Created Algorithm.py
