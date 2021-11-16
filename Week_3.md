@@ -8,6 +8,8 @@
 ### Abin Cheriyan ###
 
 ### Ethan Lewis ###
+  - Main.py takeover bug
+  - helped with Twilio bug 
 
 ### Dylan Dunda ###
 
