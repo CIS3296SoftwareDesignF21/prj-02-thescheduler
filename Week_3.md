@@ -14,5 +14,8 @@
 ### Dylan Dunda ###
 
 ### Erik Rodriguez ###
-
+  - Enhanced input.py by adding function parseQueue():
+    - parseQueue handles multiple requests at once (using queue)
+    - Uses html scraping techniques to automate banner navigation
+    - Detailed input requirements in comments
 ### Ryan Babala ###
