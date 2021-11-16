@@ -7,8 +7,7 @@ from selenium.webdriver.support.ui import Select
 
 import time
 
-
-# fo = open('input_text.txt' 'w')
+#PATH = "/usr/local/bin/chromedriver"
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
@@ -16,7 +15,7 @@ driver = webdriver.Chrome(PATH)
 
 driver.get("https://thescheduler.pythonanywhere.com/course_select")
 
-##time.sleep(5)
+time.sleep(2)
 department = driver.find_element_by_id("fdept")
 crs = department
 
@@ -24,43 +23,81 @@ course_number = driver.find_element_by_id("fcrs")
 crn = course_number
 
 driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
-# driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
+#driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
 
 
 sel = driver.find_element_by_id('s2id_txt_term')
 sel.click()
 
-# sel.select_by_visible_text("Spring 2022")
-
+#sel.select_by_visible_text("Spring 2022")
+time.sleep(2)
 
 select = driver.find_element_by_id("s2id_autogen1_search")
 select.send_keys('2022 Spring')
-
+time.sleep(1)
 select.click()
-# select.select_by_value('2022 Spring')
+#select.select_by_value('2022 Spring')
 
-time.sleep(1)  # This is needed in order to select the correct term, DO NOT DELETE THIS LINE
+time.sleep(1)
 spring = driver.find_element_by_id("select2-results-1")
 spring.click()
-# spring.select_by_visible_text('2022 Spring')
+#spring.select_by_visible_text('2022 Spring')
 
 submit = driver.find_element_by_id('term-go')
 submit.click()
 
-## "select2-result-label-23"
-##########################################################################
-subject = driver.find_element_by_name("txt_subject")
-subject.send_keys('Computer')
-subject.click()
 
-crnum = driver.find_element_by_name("txt_course_number_range_From")
+time.sleep(1)
+
+subject_before = driver.find_element_by_id("s2id_txt_subject")
+subject_before.click()
+
+
+subject_after = driver.find_element_by_id("s2id_autogen1")
+subject_after.send_keys('CIS')
+time.sleep(1)
+subject_after.send_keys(Keys.RETURN)
+## works till here
+
+
+'''
+time.sleep(2)
+crnum = driver.find_element_by_name("txt_courseNumber")
 crnum.send_keys('3207')
+'''
+
+crnum_from = driver.find_element_by_name("txt_course_number_range_From")
+crnum_from.click()
+crnum_from.send_keys('3207')
+
+
+crnum_to = driver.find_element_by_name("txt_course_number_range_To")
+crnum_to.send_keys('3207')
+
 
 search = driver.find_element_by_id("search-go")
-search.click
+search.click()
 
-time.sleep(10)  # waits 5 seconds
+view_sections = driver.find_("form-button status-bold showMoreLinkedSectionsButton")
+view_sections.click()
 
-# print(crs, crn, file = fo )
+'''
+search_again = driver.find_element_by_id("search-again-button")
+search_again.click()   Needed for loop 
+
+CourseTitle = driver.find_element_by_id("courseTitle")
+print(CourseTitle)    This print is to check if the scrapper is working
+
+section_number = driver.find_element_by_id("sectionNumber")
+print(section_number)
+
+credit_hours = driver.find_elements_by_name("Credit Hours:")
+print(credit_hours)
+
+'''
+
+
+time.sleep(10) # waits 5 seconds
+
 driver.quit()
-# fo.close()
+
