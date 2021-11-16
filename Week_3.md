@@ -6,7 +6,10 @@
   - Helped modifying Input.py
 
 ### Abin Cheriyan ###
-
+  - Fixed the input drop down issue
+  - Modified input.py
+  - buG Fixes
+  
 ### Ethan Lewis ###
   - Main.py takeover bug
   - helped with Twilio bug 
