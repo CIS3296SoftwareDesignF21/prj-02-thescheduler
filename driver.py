@@ -23,7 +23,7 @@ def course_select():
         crs2 = request.form["fcrs2"]
         crs3 = request.form["fcrs3"]
         crs4 = request.form["fcrs4"]
-        # main() #intergratted but has bugs
+        # main() #integrated but has bugs
         return redirect(
             url_for("post_course", department=dept, course_number1=crs1, course_number2=crs2, course_number3=crs3,
                     course_number4=crs4))
