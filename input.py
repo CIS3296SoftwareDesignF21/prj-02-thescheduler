@@ -85,14 +85,19 @@ view_sections.click()
 search_again = driver.find_element_by_id("search-again-button")
 search_again.click()   Needed for loop 
 
-
-CourseTitle = driver.find_element_by_id("650874")
+CourseTitle = driver.find_element_by_id("courseTitle")
 print(CourseTitle)    This print is to check if the scrapper is working
+
+section_number = driver.find_element_by_id("sectionNumber")
+print(section_number)
+
+credit_hours = driver.find_elements_by_name("Credit Hours:")
+print(credit_hours)
+
 '''
+
 
 time.sleep(10) # waits 5 seconds
 
-#print(crs, crn, file = fo )
 driver.quit()
-#fo.close()
 
