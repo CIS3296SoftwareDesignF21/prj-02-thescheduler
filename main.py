@@ -1,8 +1,10 @@
 # Felix Rabinovich
 # TheScheduler
 
+
+import Twilio
 import input
 
+Twilio()
+input()
 
-if __name__ == "__main__":
-    input()

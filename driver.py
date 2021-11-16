@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, request
-import main
+
 
 app = Flask(__name__)
 
@@ -19,7 +19,6 @@ def course_select():
     if request.method == "POST":
         dept = request.form["fdept"]
         crs = request.form["fcrs"]
-        #main() intergratted but has bugs
         return redirect(url_for("post_course", department=dept, course_number=crs))
     else:
         return render_template("index.html")
@@ -29,6 +28,11 @@ def course_select():
 def post_course(department, course_number):
     return f"<h1>Go CST!! You're taking:{department},{course_number}</h1>"
 
+def run_main():
+    import main
+    main()
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+

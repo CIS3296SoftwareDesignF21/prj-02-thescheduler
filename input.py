@@ -93,5 +93,3 @@ time.sleep(10) # waits 5 seconds
 driver.quit()
 #fo.close()
 
-
-
