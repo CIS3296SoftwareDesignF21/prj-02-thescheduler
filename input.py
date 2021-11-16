@@ -78,12 +78,16 @@ crnum_to.send_keys('3207')
 search = driver.find_element_by_id("search-go")
 search.click()
 
-view_sections = driver.find_element_by_class_name("form-button.search-section-button")
+view_sections = driver.find_("form-button status-bold showMoreLinkedSectionsButton")
 view_sections.click()
 
 '''
+search_again = driver.find_element_by_id("search-again-button")
+search_again.click()   Needed for loop 
+
+
 CourseTitle = driver.find_element_by_id("650874")
-print(CourseTitle)
+print(CourseTitle)    This print is to check if the scrapper is working
 '''
 
 time.sleep(10) # waits 5 seconds
