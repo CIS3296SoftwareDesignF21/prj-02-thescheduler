@@ -15,7 +15,7 @@ driver = webdriver.Chrome(PATH)
 
 driver.get("https://thescheduler.pythonanywhere.com/course_select")
 
-##time.sleep(5)
+time.sleep(2)
 department = driver.find_element_by_id("fdept")
 crs = department
 
@@ -25,7 +25,7 @@ crn = course_number
 driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
 #driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
 
-time.sleep(5)
+time.sleep(3)
 
 sel = driver.find_element_by_id('s2id_txt_term')
 sel.click()
@@ -47,19 +47,45 @@ spring.click()
 submit = driver.find_element_by_id('term-go')
 submit.click()
 
-## "select2-result-label-23"
-subject = driver.find_element_by_id("select2-container")
-subject.send_keys(crs)
 
-crnum = driver.find_element_by_name("txt_course_number_range_From")
-crnum.send_keys(crn)
+time.sleep(1)
 
-search = driver.find_element_by_ID("search-go")
-search.click
+subject_before = driver.find_element_by_id("s2id_txt_subject")
+subject_before.click()
 
-CourseTitle = driver.find_element_by_ID("650874")
+
+subject_after = driver.find_element_by_id("s2id_autogen1")
+subject_after.send_keys('CIS')
+time.sleep(1)
+subject_after.send_keys(Keys.RETURN)
+## works till here
+
+
+'''
+time.sleep(2)
+crnum = driver.find_element_by_name("txt_courseNumber")
+crnum.send_keys('3207')
+'''
+time.sleep(1)
+crnum_from = driver.find_element_by_name("txt_course_number_range_From")
+crnum_from.click()
+crnum_from.send_keys('3207')
+
+
+crnum_to = driver.find_element_by_name("txt_course_number_range_To")
+crnum_to.send_keys('3207')
+
+time.sleep(2)
+search = driver.find_element_by_id("search-go")
+search.click()
+
+view_sections = driver.find_element_by_class_name("form-button.search-section-button")
+view_sections.click()
+
+'''
+CourseTitle = driver.find_element_by_id("650874")
 print(CourseTitle)
-
+'''
 
 time.sleep(10) # waits 5 seconds
 
