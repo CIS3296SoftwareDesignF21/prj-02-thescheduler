@@ -7,8 +7,8 @@ from selenium.webdriver.support.ui import Select
 
 import time
 
-#fo = open('input_text.txt' 'w')
-PATH = "/usr/local/bin/chromedriver"
+#PATH = "/usr/local/bin/chromedriver"
+PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 
 #### Code to run webside
@@ -25,7 +25,6 @@ crn = course_number
 driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
 #driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
 
-time.sleep(3)
 
 sel = driver.find_element_by_id('s2id_txt_term')
 sel.click()
@@ -66,7 +65,7 @@ time.sleep(2)
 crnum = driver.find_element_by_name("txt_courseNumber")
 crnum.send_keys('3207')
 '''
-time.sleep(1)
+
 crnum_from = driver.find_element_by_name("txt_course_number_range_From")
 crnum_from.click()
 crnum_from.send_keys('3207')
@@ -75,7 +74,7 @@ crnum_from.send_keys('3207')
 crnum_to = driver.find_element_by_name("txt_course_number_range_To")
 crnum_to.send_keys('3207')
 
-time.sleep(2)
+
 search = driver.find_element_by_id("search-go")
 search.click()
 
