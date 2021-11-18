@@ -93,6 +93,8 @@ def post_course(department, course_number1):
     view_sections = driver.find_element_by_class_name("form-button.search-section-button")
     view_sections.click()
 
+
+
     time.sleep(10) # waits 5 seconds
 
     driver.quit()
