@@ -33,10 +33,10 @@ def course_select():
 
 @app.route("/<department>&<course_number1>&<course_number2>&<course_number3>&<course_number4>")
 def post_course(department, course_number1, course_number2, course_number3, course_number4):
-    return f"<h1>Go CST!! You're taking:{department},{course_number1}</h1>" \
-           f"<h1>Go CST!! You're taking:{department},{course_number2}</h1>" \
-           f"<h1>Go CST!! You're taking:{department},{course_number3}</h1>" \
-           f"<h1>Go CST!! You're taking:{department},{course_number4}</h1>"
+    return f"<h1>Go {department}!! You're taking:{department},{course_number1}</h1>" \
+           f"<h1>Go {department}!! You're taking:{department},{course_number2}</h1>" \
+           f"<h1>Go {department}!! You're taking:{department},{course_number3}</h1>" \
+           f"<h1>Go {department}!! You're taking:{department},{course_number4}</h1>"
 
 def run_hub():
     import hub
