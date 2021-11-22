@@ -42,18 +42,18 @@ subject_before.click()
 
 
 subject_after = driver.find_element_by_id("s2id_autogen1")
-subject_after.send_keys(department)
+subject_after.send_keys('CIS')
 time.sleep(1)
 subject_after.send_keys(Keys.RETURN)
 
 
 crnum_from = driver.find_element_by_name("txt_course_number_range_From")
 crnum_from.click()
-crnum_from.send_keys(course)
+crnum_from.send_keys('3207')
 
 
 crnum_to = driver.find_element_by_name("txt_course_number_range_To")
-crnum_to.send_keys(course)
+crnum_to.send_keys('3207')
 
 
 search = driver.find_element_by_id("search-go")
@@ -63,6 +63,23 @@ time.sleep(1)
 view_sections = driver.find_element_by_class_name("form-button.search-section-button")
 view_sections.click()
 
-time.sleep(10) # waits 5 seconds
+#######################################################################
+time.sleep(1)
+
+before_course_number = driver.find_element_by_class_name("odd")
+before_course_number.click()
+
+time.sleep(3)
+course_number = driver.find_elements_by_class_name('odd')
+#digit = course_number.text
+for element in course_number:
+    #print (course_number.text)
+    #print(driver.find_element_by_class_name("readonly.add-row-selected").text)
+    print(element.text)
+
+
+
+
+time.sleep(10) # waits 10 seconds
 
 driver.quit()
