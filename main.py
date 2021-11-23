@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
+from collections import deque
 import time
 app = Flask(__name__)
 
@@ -21,12 +22,21 @@ def home():
 @app.route("/course_select", methods=["POST", "GET"])
 def course_select():
     if request.method == "POST":
+        courses = deque()
         dept = request.form["fdept"]
         crs1 = request.form["fcrs1"]
         crs2 = request.form["fcrs2"]
         crs3 = request.form["fcrs3"]
         crs4 = request.form["fcrs4"]
+        courses.append({'Dept': dept, 'Course Number': crs1})
+        courses.append({'Dept': dept, 'Course Number': crs2})
+        courses.append({'Dept': dept, 'Course Number': crs3})
+        courses.append({'Dept': dept, 'Course Number': crs4})
 
+        """ TODO: Send course queue to parse_queue rather than get_course
+        parse_queue(courses)
+        
+        """
         return redirect(
             url_for("get_course", department=dept, course_number1=crs1, course_number2=crs2, course_number3=crs3,
                     course_number4=crs4))
@@ -138,42 +148,21 @@ def get_course(department, course_number1):
 
     term = driver.find_element_by_id("term-go")
     term.click
-
-    def parseQueue(courseQueue):
-        while courseQueue:
-            currentClass = courseQueue.pop() #Store the next entry in memory, delete it from the queue
-            currentSubject = currentClass['Subject']
-            currentCourseNum = currentClass['Course Number']
-
-
-
-            subject = driver.find_element_by_id("select2-container")
-            subject.send_keys(currentSubject)
-
-            crnum = driver.find_element_by_name("txt_course_number_range_From")
-            crnum.send_keys(currentCourseNum)
-
-            search = driver.find_element_by_id("search-go")
-            search.click
-
-            # Experimental from here till end of loop
-            crsSelect = driver.find_element_by_class_name("form-button search-section-button")
-            crsSelect.click
-
-            #callCourseScraper
-
-            backToSearch = driver.find_element_by_class_name("form-button return-course-button")
-            backToSearch.click
-
-            searchAgain = driver.find_element_by_id("search-again-button")
-            searchAgain.click
-
-
-        return
-    # print(crs, crn, file = fo )
-    driver.quit()
-    # fo.close()
     '''
+
+def parse_queue(courseQueue):
+    while courseQueue:
+        currentClass = courseQueue.popleft() #Store the next entry in memory, delete it from the queue
+        currentDept = currentClass['Dept']
+        currentCourseNum = currentClass['Course Number']
+
+        if currentDept != None and currentCourseNum != None: # check for null inputs
+            get_course(currentDept, currentCourseNum)
+    return
+# print(crs, crn, file = fo )
+# driver.quit()
+# fo.close()
+
 
 if __name__ == "__main__":
     app.run(debug=True)
