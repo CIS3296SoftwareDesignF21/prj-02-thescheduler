@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 import time
-
+file  = open("scraped_details.txt", "w")
 PATH = "/usr/local/bin/chromedriver"
 #PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
@@ -75,11 +75,19 @@ course_number = driver.find_elements_by_class_name('odd')
 for element in course_number:
     #print (course_number.text)
     #print(driver.find_element_by_class_name("readonly.add-row-selected").text)
-    print(element.text)
+    print(element.text, file =  file)
 
+time.sleep(2)
+course_number = driver.find_elements_by_class_name('even')
+#digit = course_number.text
+for element in course_number:
+    #print (course_number.text)
+    #print(driver.find_element_by_class_name("readonly.add-row-selected").text)
+    print(element.text, file = file)
 
 
 
 time.sleep(10) # waits 10 seconds
+file.close()
 
 driver.quit()
