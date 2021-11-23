@@ -15,6 +15,7 @@
   - helped with Twilio bug 
 
 ### Dylan Dunda ###
+  - Worked on merging headless browser
 
 ### Erik Rodriguez ###
   - Enhanced input.py by adding function parseQueue():
