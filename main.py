@@ -40,10 +40,11 @@ def course_select():
 
 @app.route("/<department>&<course_number1>")
 def post_course(department, course_number1):
+    file = open("scraped_details.txt", "w")
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
-    PATH = os.path.join(sys.path[0], "chromedriver")
+    #PATH = os.path.join(sys.path[0], "chromedriver")
     #PATH = "/usr/local/bin/chromedriver"
-    #PATH = "C:\Program Files (x86)\chromedriver.exe"
+    PATH = "C:\Program Files (x86)\chromedriver.exe"
 
     chrome_options = Options()
     chrome_options.headless = True
@@ -115,9 +116,29 @@ def post_course(department, course_number1):
     view_sections = driver.find_element_by_class_name("form-button.search-section-button")
     view_sections.click()
 
+    time.sleep(1)
 
-    time.sleep(10) # waits 5 seconds
-    #driver.save_screenshot("HeadlessMainScreenshot.png")
+    before_course_number = driver.find_element_by_class_name("odd")
+    before_course_number.click()
+
+    time.sleep(3)
+    course_number = driver.find_elements_by_class_name('odd')
+    # digit = course_number.text
+    for element in course_number:
+        # print (course_number.text)
+        # print(driver.find_element_by_class_name("readonly.add-row-selected").text)
+        print(element.text, file=file)
+
+    time.sleep(2)
+    course_number = driver.find_elements_by_class_name('even')
+    # digit = course_number.text
+    for element in course_number:
+        # print (course_number.text)
+        # print(driver.find_element_by_class_name("readonly.add-row-selected").text)
+        print(element.text, file=file)
+
+    time.sleep(10)  # waits 10 seconds
+    file.close()
 
     driver.quit()
 
