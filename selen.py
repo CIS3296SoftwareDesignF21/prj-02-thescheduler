@@ -66,26 +66,53 @@ view_sections.click()
 #######################################################################
 time.sleep(1)
 
+uncheck_options = driver.find_element_by_class_name("sort-disabled.visibility-control-column.footable-last-column")
+#column-visibility-menu
+uncheck_options.click()
+
+uncheck_options = driver.find_element_by_id("menuItemId11")
+uncheck_options.click()
+
+uncheck_options = driver.find_element_by_id("menuItemId12")
+uncheck_options.click()
+
+uncheck_options = driver.find_element_by_id("menuItemId13")
+uncheck_options.click()
+
+uncheck_options = driver.find_element_by_id("menuItemId14")
+uncheck_options.click()
+
+uncheck_options = driver.find_element_by_id("menuItemId15")
+uncheck_options.click()
+
 before_course_number = driver.find_element_by_class_name("odd")
 before_course_number.click()
 
 time.sleep(3)
 course_number = driver.find_elements_by_class_name('odd')
+
+#meeting_time = driver.find_elements_by_class_name("meeting")
 #digit = course_number.text
 for element in course_number:
-    #print (course_number.text)
-    #print(driver.find_element_by_class_name("readonly.add-row-selected").text)
+    #meeting_time = driver.find_element_by_id("202203.5462div")
+    meeting_time = driver.find_element_by_class_name("meeting").get_attribute("title")
     print(element.text, file =  file)
+    print("\n", file = file)
+    print(meeting_time)
+
 
 time.sleep(2)
 course_number = driver.find_elements_by_class_name('even')
 #digit = course_number.text
 for element in course_number:
-    #print (course_number.text)
-    #print(driver.find_element_by_class_name("readonly.add-row-selected").text)
-    print(element.text, file = file)
+    time.sleep(2)
+    meetingtime = driver.find_element_by_class_name("ui-pillbox-summary.screen-reader")
+    #classs = meetingtime.get_attribute("title")
+    print(element.text, file=file)
+    print("\n", file=file)
+    print(meetingtime.text)
 
-
+#print(meeting_time.text, file = file )
 
 time.sleep(10) # waits 10 seconds
 file.close()

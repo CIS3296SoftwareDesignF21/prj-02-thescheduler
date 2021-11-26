@@ -6,7 +6,7 @@ W
 T
 F
 S
-09:00 AM - 10: AM
+09:00 AM - 10:50 AM Type: Laboratory
 S
 M
 T
@@ -14,12 +14,12 @@ W
 T
 F
 S
-12:30 PM - 01: PM
+12:30 PM - 01:50 PM Type: Lecture
 5 of 30 seats remain.
 100 of 100 waitlist seats remain.
 Gene Kwatny (Primary)
-View Course Materials
-1
+
+
 27008 CIS 3207, 003 Main 4 Introduction to Systems Programming and Operating Systems
 S
 M
@@ -28,7 +28,7 @@ W
 T
 F
 S
-01:00 PM - 02: PM
+01:00 PM - 02:50 PM Type: Laboratory
 S
 M
 T
@@ -36,12 +36,12 @@ W
 T
 F
 S
-03:30 PM - 04: PM
+03:30 PM - 04:50 PM Type: Lecture
 FULL: 0 of 30 seats remain.
-91 of 100 waitlist seats remain.
+89 of 100 waitlist seats remain.
 John Fiore (Primary)
-View Course Materials
-1
+
+
 30078 CIS 3207, 002 Main 4 Introduction to Systems Programming and Operating Systems
 S
 M
@@ -50,7 +50,7 @@ W
 T
 F
 S
-09:00 AM - 10: AM
+09:00 AM - 10:50 AM Type: Laboratory
 S
 M
 T
@@ -58,12 +58,12 @@ W
 T
 F
 S
-12:30 PM - 01: PM
+12:30 PM - 01:50 PM Type: Lecture
 24 of 30 seats remain.
 100 of 100 waitlist seats remain.
 Gene Kwatny (Primary)
-View Course Materials
-1
+
+
 35825 CIS 3207, 004 Main 4 Introduction to Systems Programming and Operating Systems
 S
 M
@@ -72,7 +72,7 @@ W
 T
 F
 S
-12:30 PM - 01: PM
+12:30 PM - 01:50 PM Type: Lecture
 S
 M
 T
@@ -80,9 +80,9 @@ W
 T
 F
 S
-01:00 PM - 02: PM
+01:00 PM - 02:50 PM Type: Laboratory
 FULL: 0 of 30 seats remain.
 98 of 100 waitlist seats remain.
 Gene Kwatny (Primary)
-View Course Materials
-1
+
+
