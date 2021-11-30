@@ -13,8 +13,9 @@
 - Added to the presentation Slide
 
 ### Dylan Dunda ###
-- 
-- 
+- Fixed some selenium code
+- Implemented headless browsing into main
+- Helped with sequence diagram
 - Added to the presentation Slide
 
 
