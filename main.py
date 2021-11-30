@@ -31,140 +31,147 @@ def course_select():
         crs3 = request.form["fcrs3"]
         crs4 = request.form["fcrs4"]
 
+        courses_input = [crs1, crs2, crs3, crs4]
+
         return redirect(
-            url_for("get_course", department=dept, course_number1=crs1))
+            url_for("get_course", department=dept, courses_input=courses_input))
     else:
         return render_template("index.html")
 
 
-@app.route("/<department>&<course_number1>")
-def get_course(department, course_number1):
-    file = open("scraped_details.txt", "w")
-    PATH = "/usr/local/bin/chromedriver"
-    #PATH = "C:\Program Files (x86)\chromedriver.exe"
-    driver = webdriver.Chrome(PATH)
-    # page = requests.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
-    driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
-    # driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
-
-    sel = driver.find_element_by_id('s2id_txt_term')
-    sel.click()
-
-    # sel.select_by_visible_text("Spring 2022")
-    time.sleep(2)
-
-    select = driver.find_element_by_id("s2id_autogen1_search")
-    select.send_keys('2022 Spring')
-    time.sleep(1)
-    select.click()
-    # select.select_by_value('2022 Spring')
-
-    time.sleep(1)
-    spring = driver.find_element_by_id("select2-results-1")
-    spring.click()
-    # spring.select_by_visible_text('2022 Spring')
-
-    submit = driver.find_element_by_id('term-go')
-    submit.click()
-
-    time.sleep(1)
-
-    subject_before = driver.find_element_by_id("s2id_txt_subject")
-    subject_before.click()
-
-    subject_after = driver.find_element_by_id("s2id_autogen1")
-    subject_after.send_keys(department)
-    time.sleep(1)
-    subject_after.send_keys(Keys.RETURN)
-
-    crnum_from = driver.find_element_by_name("txt_course_number_range_From")
-    crnum_from.click()
-    crnum_from.send_keys(course_number1)
-
-    crnum_to = driver.find_element_by_name("txt_course_number_range_To")
-    crnum_to.send_keys(course_number1)
-
-    search = driver.find_element_by_id("search-go")
-    search.click()
-
-    time.sleep(1)
-    view_sections = driver.find_element_by_class_name("form-button.search-section-button")
-    view_sections.click()
-
-    time.sleep(1)
-    table = driver.find_element(By.ID, "table1")
-    table_body = table.find_element(By.TAG_NAME, "tbody")
-    rows = table_body.find_elements(By.TAG_NAME, "tr")
-
+@app.route("/<department>&<courses_input>")
+def get_course(department, courses_input):
+    print("All courses = ", courses_input)
     course_results = {"credits": "0", "sections": []}
     all_sections = []
+    for idx, course_number in enumerate(courses_input):
+        print("Course number = ", course_number)
+        if course_number is None or course_number.isdigit() != True:
+            print("No course given")
+        else:
+            file = open("scraped_details.txt", "w")
+            PATH = "/usr/local/bin/chromedriver"
+            #PATH = "C:\Program Files (x86)\chromedriver.exe"
+            driver = webdriver.Chrome(PATH)
+            # page = requests.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
+            driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
+            # driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
+            time.sleep(3)
+            sel = driver.find_element_by_id('s2id_txt_term')
+            sel.click()
 
-    # "//tagname[@Atrribute='Value']"
-    for row in rows:
-        crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']").text
-        course_results["credits"] = row.find_element(By.XPATH, "//td[@data-property='creditHours']").text
+            # sel.select_by_visible_text("Spring 2022")
+            time.sleep(2)
 
-        meeting_times = []
-        prof_td = row.find_element(By.XPATH, "//td[@data-property='instructor']")
-        prof = prof_td.find_element(By.CLASS_NAME, "email").text # Professor's name
-        print("Prof = ", prof)
+            select = driver.find_element_by_id("s2id_autogen1_search")
+            select.send_keys('2022 Spring')
+            time.sleep(1)
+            select.click()
+            # select.select_by_value('2022 Spring')
 
-        meeting_td = row.find_element(By.XPATH, "//td[@data-property='meetingTime']")
-        meetings = row.find_elements(By.CLASS_NAME, "meeting")
-        for meeting in meetings:
+            time.sleep(1)
+            spring = driver.find_element_by_id("select2-results-1")
+            spring.click()
+            # spring.select_by_visible_text('2022 Spring')
 
+            submit = driver.find_element_by_id('term-go')
+            submit.click()
 
-            dayParent = meeting.find_element(By.CLASS_NAME, "ui-pillbox")
-            day = dayParent.find_element(By.CLASS_NAME, "ui-pillbox-summary").get_attribute('innerHTML')
-            #day = meeting.find_element(By.XPATH, "//*[contains(@title,'Class on')]//descendant::div[1]").get_attribute('innerHTML')
-            #day = dayPrelim.find_element(By.XPATH, "//div[@class='ui-pillbox-summary screen-reader']").text
-            print("Day = ", day)
+            time.sleep(1)
 
-            time_range = meeting.find_element(By.TAG_NAME, "span") # time range is nested spans
-            i = 0
-            start, end = "", ""
-            print(time_range.text)
-            for span in time_range.find_elements(By.TAG_NAME, "span"): #loops 4 times
-                #print("current span = ", span.get_attribute('innerHTML'))
-                #print("i = ", i)
-                if i == 0:
-                    start += span.text
-                    start += ":"
-                    i += 1
-                    continue
+            subject_before = driver.find_element_by_id("s2id_txt_subject")
+            subject_before.click()
 
-                if i == 1:
-                    start += span.text
-                    i += 1
-                    continue
+            subject_after = driver.find_element_by_id("s2id_autogen1")
+            subject_after.send_keys(department)
+            time.sleep(1)
+            subject_after.send_keys(Keys.RETURN)
 
-                if i == 2:
-                    end += span.text
-                    end += ":"
-                    i += 1
-                    continue
+            crnum_from = driver.find_element_by_name("txt_course_number_range_From")
+            crnum_from.click()
+            crnum_from.send_keys(course_number)
 
-                if i == 3:
-                    end += span.get_attribute('innerHTML')
-                    i += 1
-                    continue
+            crnum_to = driver.find_element_by_name("txt_course_number_range_To")
+            crnum_to.send_keys(course_number)
 
-            if ',' in day: # Multiple days per 1 meeting time of day
-                days_split = day.split(",")
-                for meeting_day in days_split:
-                    meeting_map = {"day": meeting_day, "start": start, "end": end, "instructor": prof}
-                    meeting_times.append(meeting_map)
-            else:
-                meeting_map = {"day": day, "start": start, "end": end, "instructor": prof}
-                meeting_times.append(meeting_map)
+            search = driver.find_element_by_id("search-go")
+            search.click()
 
-        section = (crn, meeting_times)
-        all_sections.append(section)
-    file.close()
-    driver.quit()
-    course_results["sections"] = all_sections
-    print(course_results)
-    return course_results
+            time.sleep(1)
+            view_sections = driver.find_element_by_class_name("form-button.search-section-button")
+            view_sections.click()
+
+            time.sleep(1)
+            table = driver.find_element(By.ID, "table1")
+            table_body = table.find_element(By.TAG_NAME, "tbody")
+            rows = table_body.find_elements(By.TAG_NAME, "tr")
+
+            # "//tagname[@Atrribute='Value']"
+            for row in rows:
+                print("-------")
+                course_results["credits"] = row.find_element(By.XPATH, "//td[@data-property='creditHours']").text
+
+                crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']").get_attribute('innerHTML')
+                print("crn = ", crn)
+
+                meeting_times = []
+                prof_td = row.find_element(By.XPATH, "//td[@data-property='instructor']")
+                prof = prof_td.find_element(By.CLASS_NAME, "email").get_attribute('innerHTML') # Professor's name
+                print("Prof = ", prof)
+
+                meeting_td = row.find_element(By.XPATH, "//td[@data-property='meetingTime']")
+                meetings = row.find_elements(By.CLASS_NAME, "meeting")
+                for meeting in meetings:
+                    dayParent = meeting.find_element(By.CLASS_NAME, "ui-pillbox")
+                    day = dayParent.find_element(By.CLASS_NAME, "ui-pillbox-summary").get_attribute('innerHTML')
+                    #day = meeting.find_element(By.XPATH, "//*[contains(@title,'Class on')]//descendant::div[1]").get_attribute('innerHTML')
+                    #day = dayPrelim.find_element(By.XPATH, "//div[@class='ui-pillbox-summary screen-reader']").text
+                    print("Day = ", day)
+
+                    time_range = meeting.find_element(By.TAG_NAME, "span") # time range is nested spans
+                    i = 0
+                    start, end = "", ""
+                    print(time_range.text)
+                    for span in time_range.find_elements(By.TAG_NAME, "span"): #loops 4 times
+                        #print("current span = ", span.get_attribute('innerHTML'))
+                        #print("i = ", i)
+                        if i == 0:
+                            start += span.text
+                            start += ":"
+                            i += 1
+                            continue
+
+                        if i == 1:
+                            start += span.text
+                            i += 1
+                            continue
+
+                        if i == 2:
+                            end += span.text
+                            end += ":"
+                            i += 1
+                            continue
+
+                        if i == 3:
+                            end += span.get_attribute('innerHTML')
+                            i += 1
+                            continue
+
+                    if ',' in day: # Multiple days per 1 meeting time of day
+                        days_split = day.split(",")
+                        for meeting_day in days_split:
+                            meeting_map = {"day": meeting_day, "start": start, "end": end, "instructor": prof}
+                            meeting_times.append(meeting_map)
+                    else:
+                        meeting_map = {"day": day, "start": start, "end": end, "instructor": prof}
+                        meeting_times.append(meeting_map)
+
+                section = (crn, meeting_times)
+                all_sections.append(section)
+            file.close()
+            driver.quit()
+            course_results["sections"] = all_sections
+            print(course_results)
     #######################################################################
     """
     
