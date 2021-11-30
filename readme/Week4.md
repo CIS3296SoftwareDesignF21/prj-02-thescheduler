@@ -4,14 +4,19 @@
 ### Abin Cheriyan ###
 - Modified Sequence Diagram
 - Helped with Uml diagram
-- Did a little of the input/scraper
+- Did a little bit of the input/scraper
 - Added to the presentation Slide
 
 ### Ethan Lewis ###
-- 
+-
+-
+- Added to the presentation Slide
 
 ### Dylan Dunda ###
 - 
+- 
+- Added to the presentation Slide
+
 
 ### Erik Rodriguez ###
 - 
