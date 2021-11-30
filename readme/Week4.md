@@ -1,5 +1,9 @@
 ### Felix Rabinovich ###
-- 
+- Intergrated all parts 
+- Added Output box and phone number insert 
+- Renamed .py files (this was to solve a bug)
+- Helped with sequence Diagram
+- Added to presentation slide
 
 ### Abin Cheriyan ###
 - Modified Sequence Diagram
