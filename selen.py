@@ -106,13 +106,16 @@ course_number = driver.find_elements_by_class_name('even')
 #digit = course_number.text
 for element in course_number:
     time.sleep(2)
-    meetingtime = driver.find_element_by_class_name("ui-pillbox-summary.screen-reader")
-    #classs = meetingtime.get_attribute("title")
+    meetingtime = driver.find_element_by_class_name("ui-pillbox")
+    classs = meetingtime.get_attribute("title")
     print(element.text, file=file)
-    print("\n", file=file)
-    print(meetingtime.text)
+    print("\n", file = file)
+    print(classs)
 
 #print(meeting_time.text, file = file )
+
+meeting_time = driver.find_element_by_class_name("meeting").get_attribute("title")
+print(meeting_time)
 
 time.sleep(10) # waits 10 seconds
 file.close()
