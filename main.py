@@ -31,20 +31,20 @@ def course_select():
         crs3 = request.form["fcrs3"]
         crs4 = request.form["fcrs4"]
 
-        courses_input = [crs1, crs2, crs3, crs4]
+        courses = crs1+','+crs2+','+crs3+','+crs4
 
         return redirect(
-            url_for("get_course", department=dept, courses_input=courses_input))
+            url_for("get_course", department=dept, courses_input=courses))
     else:
         return render_template("index.html")
 
 
 @app.route("/<department>&<courses_input>")
 def get_course(department, courses_input):
-    print("All courses = ", courses_input)
+    course_list = courses_input.split(',')
     course_results = {"credits": "0", "sections": []}
     all_sections = []
-    for idx, course_number in enumerate(courses_input):
+    for idx, course_number in enumerate(course_list):
         print("Course number = ", course_number)
         if course_number is None or course_number.isdigit() != True:
             print("No course given")
