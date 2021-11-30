@@ -113,7 +113,8 @@ Andrew is a freshman, undeclared business student at Temple University. He's a b
 https://trello.com/b/iZgkH5XX/the-scheduler
 
 ## UML ##
-<img width="685" alt="Screen Shot 2021-11-08 at 5 19 28 PM" src="https://user-images.githubusercontent.com/70286610/140864420-ce032519-26e1-4d51-b60a-a051fcff0269.png">
+![FinalClassDiagram drawio](https://user-images.githubusercontent.com/70286610/143993285-b392be51-a36e-4116-a3f7-112c80ccc703.png)
+
 
 ## Sequence Diagram ##
 ![image](https://user-images.githubusercontent.com/89619191/143992791-e0d2f88d-3a43-42de-a3d7-dd66cec5bb16.png)
