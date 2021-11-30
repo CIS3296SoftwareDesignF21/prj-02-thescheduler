@@ -8,9 +8,10 @@
 - Added to the presentation Slide
 
 ### Ethan Lewis ###
--
--
+- Helped Integrate Twilio into main
+- Modified class diagram
 - Added to the presentation Slide
+- Helped with Sequence Diagram
 
 ### Dylan Dunda ###
 - Fixed some selenium code
