@@ -9,6 +9,9 @@ from twilio.rest import Client
 import time
 import requests
 import lxml.html as lh
+
+import algorithm
+
 app = Flask(__name__)
 
 """
@@ -172,95 +175,7 @@ def get_course(department, courses_input):
             driver.quit()
             course_results["sections"] = all_sections
             print(course_results)
-    #######################################################################
-    """
-    
-    time.sleep(1)
 
-    before_course_number = driver.find_element_by_class_name("odd")
-    before_course_number.click()
-
-    time.sleep(3)
-    course_number = driver.find_elements_by_class_name('odd')
-    # digit = course_number.text
-    for element in course_number:
-        # print (course_number.text)
-        # print(driver.find_element_by_class_name("readonly.add-row-selected").text)
-        print(element.text, file=file)
-
-    time.sleep(2)
-    course_number = driver.find_elements_by_class_name('even')
-    # digit = course_number.text
-    for element in course_number:
-        # print (course_number.text)
-        # print(driver.find_element_by_class_name("readonly.add-row-selected").text)
-        print(element.text, file=file)
-
-    time.sleep(10)  # waits 10 seconds
-    file.close()
-
-    driver.quit()
-    """
-
-    ''' THIS IS ERIKS QUE CODE
-    # Dictionary storing for course info
-    Schedule = {1: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
-                2: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
-                3: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
-                4: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}}
-
-    classQueue is a queue implemented using deque() who's elements consist of courses.
-    Classes are dict entries structured the following way: 
-
-    {'Subject': '', 'Course Number': ''}
-
-    Example: {'Subject': 'Computer & Information Science', 'Course Number': '3296'}
-
-
-    ###
-    !! Browse Courses page must be navigated to prior to loop !!
-
-    select = driver.find_element_by_class_name("select2-drop")
-    select.send_keys("2022 Spring")
-
-    term = driver.find_element_by_id("term-go")
-    term.click
-
-    def parseQueue(courseQueue):
-        while courseQueue:
-            currentClass = courseQueue.pop() #Store the next entry in memory, delete it from the queue
-            currentSubject = currentClass['Subject']
-            currentCourseNum = currentClass['Course Number']
-
-
-
-            subject = driver.find_element_by_id("select2-container")
-            subject.send_keys(currentSubject)
-
-            crnum = driver.find_element_by_name("txt_course_number_range_From")
-            crnum.send_keys(currentCourseNum)
-
-            search = driver.find_element_by_id("search-go")
-            search.click
-
-            # Experimental from here till end of loop
-            crsSelect = driver.find_element_by_class_name("form-button search-section-button")
-            crsSelect.click
-
-            #callCourseScraper
-
-            backToSearch = driver.find_element_by_class_name("form-button return-course-button")
-            backToSearch.click
-
-            searchAgain = driver.find_element_by_id("search-again-button")
-            searchAgain.click
-
-
-        return
-    # print(crs, crn, file = fo )
-    driver.quit()
-    # fo.close()
-    '''
 
 def twilio():
     TWILIO_SID = 'ACbf02fe253cef5d92aac22aa3bd5b1676'

@@ -10,39 +10,47 @@
     <!-- Input is sent to the file specified here, currently HelloWorld.py -->
     <div id="container" align="center">
 
-    <form action="/course_select" method="post">
-      <label for="fdept">Course Department:</label>
-        <select name="fdept" id="fdept">
-            <option value="cis">CIS</option>
-            <option value="arch">ARCH</option>
-            <option value="acct">ACCT</option>
-            <option value="bioe">BIOE</option>
-            <option value="dent">DENT</option>
-            <option value="aod">AOD</option>
-            <option value="judo">JUDO</option>
-            <option value="aaas">AAAS</option>
-            <option value="adv">ADV</option>
-            <option value="bmsc">BMSC</option>
-            <option value="danc">DANC</option>
-            <option value="ps">PS</option>
-            <option value="sswg">SSWG</option>
-            <option value="srm">SRM</option>
-            <option value="fma">FMA</option>
-        </select><br>
-      <label for = "fcrs1">1st Course Number: </label>
-        <input type="text" id="fcrs1" name="fcrs1" value=""><br>
+        <form action="/course_select" method="post">
+            <label for="fdept">Course Department:</label>
+            <select name="fdept" id="fdept">
+                <option value="CIS">CIS</option>
+                <option value="arch">ARCH</option>
+                <option value="acct">ACCT</option>
+                <option value="bioe">BIOE</option>
+                <option value="dent">DENT</option>
+                <option value="aod">AOD</option>
+                <option value="judo">JUDO</option>
+                <option value="aaas">AAAS</option>
+                <option value="adv">ADV</option>
+                <option value="bmsc">BMSC</option>
+                <option value="danc">DANC</option>
+                <option value="ps">PS</option>
+                <option value="sswg">SSWG</option>
+                <option value="srm">SRM</option>
+                <option value="fma">FMA</option>
+            </select><br>
+            <label for = "fcrs1">1st Course Number: </label>
+            <input type="text" id="fcrs1" name="fcrs1" value=""><br>
 
-      <label for = "fcrs2">2nd Course Number: </label>
-        <input type="text" id="fcrs2" name="fcrs2" value=""><br>
+            <label for = "fcrs2">2nd Course Number: </label>
+            <input type="text" id="fcrs2" name="fcrs2" value=""><br>
 
-      <label for = "fcrs3">3rd Course Number: </label>
-        <input type="text" id="fcrs3" name="fcrs3" value=""><br>
+            <label for = "fcrs3">3rd Course Number: </label>
+            <input type="text" id="fcrs3" name="fcrs3" value=""><br>
 
-      <label for = "fcrs4">4th Course Number: </label>
-        <input type="text" id="fcrs4" name="fcrs4" value=""><br><br>
+            <label for = "fcrs4">4th Course Number: </label>
+            <input type="text" id="fcrs4" name="fcrs4" value=""><br><br>
 
-      <input type="submit" value="Submit">
-    </form>
+            <label for = "phone">Phone Number: </label>
+            <input type="text" id="phone" name="phone" value=""><br><br>
+
+            <input type="submit" value="Submit"><br><br>
+
+            <h2 align="center">Your Schedule</h2>
+
+            <input type="text" style="font-size: 10pt; height: 100px; width:500px;" name="output" id="output" value="">
+
+        </form>
     </div>
 
 
