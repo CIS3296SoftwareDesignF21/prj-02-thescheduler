@@ -7,6 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from twilio.rest import Client
 import time
+import requests
+import lxml.html as lh
 app = Flask(__name__)
 
 """
@@ -29,8 +31,7 @@ def course_select():
         crs4 = request.form["fcrs4"]
 
         return redirect(
-            url_for("get_course", department=dept, course_number1=crs1, course_number2=crs2, course_number3=crs3,
-                    course_number4=crs4))
+            url_for("get_course", department=dept, course_number1=crs1))
     else:
         return render_template("index.html")
 
@@ -38,10 +39,10 @@ def course_select():
 @app.route("/<department>&<course_number1>")
 def get_course(department, course_number1):
     file = open("scraped_details.txt", "w")
-    # PATH = "/usr/local/bin/chromedriver"
-    PATH = "C:\Program Files (x86)\chromedriver.exe"
+    PATH = "/usr/local/bin/chromedriver"
+    #PATH = "C:\Program Files (x86)\chromedriver.exe"
     driver = webdriver.Chrome(PATH)
-
+    # page = requests.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
     driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
     # driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
 
@@ -89,7 +90,22 @@ def get_course(department, course_number1):
     view_sections = driver.find_element_by_class_name("form-button.search-section-button")
     view_sections.click()
 
+    time.sleep(1)
+    table = driver.find_element(By.ID, "table1")
+    table_body = table.find_element(By.TAG_NAME, "tbody")
+    rows = table_body.find_elements(By.TAG_NAME, "tr")
+    print("TEST", table_body)
+    # "//tagname[@Atrribute='Value']"
+    for row in rows:
+        crn_td = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']")
+        crn = crn_td.text
+        print("CRN = ", crn)
+    file.close()
+    driver.quit()
+    return {}
     #######################################################################
+    """
+    
     time.sleep(1)
 
     before_course_number = driver.find_element_by_class_name("odd")
@@ -115,6 +131,7 @@ def get_course(department, course_number1):
     file.close()
 
     driver.quit()
+    """
 
     ''' THIS IS ERIKS QUE CODE
     # Dictionary storing for course info
