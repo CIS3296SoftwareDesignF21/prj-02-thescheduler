@@ -112,38 +112,52 @@ def get_course(department, course_number1):
         meeting_td = row.find_element(By.XPATH, "//td[@data-property='meetingTime']")
         meetings = row.find_elements(By.CLASS_NAME, "meeting")
         for meeting in meetings:
-            meeting_map = {"day": "", "start": "", "end": "", "instructor": prof}
 
-            day = meeting.find_element(By.XPATH, "//*[contains(@title,'Class on')]//descendant::div[1]").text
+
+            dayParent = meeting.find_element(By.CLASS_NAME, "ui-pillbox")
+            day = dayParent.find_element(By.CLASS_NAME, "ui-pillbox-summary").get_attribute('innerHTML')
+            #day = meeting.find_element(By.XPATH, "//*[contains(@title,'Class on')]//descendant::div[1]").get_attribute('innerHTML')
             #day = dayPrelim.find_element(By.XPATH, "//div[@class='ui-pillbox-summary screen-reader']").text
             print("Day = ", day)
-            meeting_map["day"] = day
 
             time_range = meeting.find_element(By.TAG_NAME, "span") # time range is nested spans
             i = 0
             start, end = "", ""
+            print(time_range.text)
             for span in time_range.find_elements(By.TAG_NAME, "span"): #loops 4 times
+                #print("current span = ", span.get_attribute('innerHTML'))
+                #print("i = ", i)
                 if i == 0:
                     start += span.text
                     start += ":"
                     i += 1
                     continue
+
                 if i == 1:
                     start += span.text
                     i += 1
                     continue
+
                 if i == 2:
                     end += span.text
                     end += ":"
                     i += 1
                     continue
+
                 if i == 3:
-                    end += span.text
+                    end += span.get_attribute('innerHTML')
                     i += 1
                     continue
-            meeting_map["start"] = start
-            meeting_map["end"] = end
-            meeting_times.append(meeting_map)
+
+            if ',' in day: # Multiple days per 1 meeting time of day
+                days_split = day.split(",")
+                for meeting_day in days_split:
+                    meeting_map = {"day": meeting_day, "start": start, "end": end, "instructor": prof}
+                    meeting_times.append(meeting_map)
+            else:
+                meeting_map = {"day": day, "start": start, "end": end, "instructor": prof}
+                meeting_times.append(meeting_map)
+
         section = (crn, meeting_times)
         all_sections.append(section)
     file.close()
