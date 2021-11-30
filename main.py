@@ -23,12 +23,14 @@ def home():
 
 @app.route("/course_select", methods=["POST", "GET"])
 def course_select():
+    all_courses = {}
     if request.method == "POST":
         dept = request.form["fdept"]
         crs1 = request.form["fcrs1"]
         crs2 = request.form["fcrs2"]
         crs3 = request.form["fcrs3"]
         crs4 = request.form["fcrs4"]
+
 
         return redirect(
             url_for("get_course", department=dept, course_number1=crs1))
@@ -38,6 +40,7 @@ def course_select():
 
 @app.route("/<department>&<course_number1>")
 def get_course(department, course_number1):
+    course_results = {"credits": "0", "sections": []}
     file = open("scraped_details.txt", "w")
     PATH = "/usr/local/bin/chromedriver"
     #PATH = "C:\Program Files (x86)\chromedriver.exe"
@@ -94,12 +97,50 @@ def get_course(department, course_number1):
     table = driver.find_element(By.ID, "table1")
     table_body = table.find_element(By.TAG_NAME, "tbody")
     rows = table_body.find_elements(By.TAG_NAME, "tr")
-    print("TEST", table_body)
+
+    all_sections = []
+
     # "//tagname[@Atrribute='Value']"
     for row in rows:
-        crn_td = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']")
-        crn = crn_td.text
-        print("CRN = ", crn)
+        crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']")
+        meeting_times = []
+        prof_td = row.find_element(By.XPATH, "//td[@data-property='instructor']")
+        prof = prof_td.find_element(By.CLASS_NAME, "email") # Professor's name
+        print("Prof = ", prof)
+
+        meeting_td = row.find_element(By.XPATH, "//td@data-property='meetingTime")
+        meetings = row.find_elements(By.CLASS_NAME, "meeting")
+        for meeting in meetings:
+            meeting_map = {"day": "", "start": "", "end": "", "instructor": prof}
+
+            day = meeting.find_element(By.CLASS_NAME, "ui-pillbox-summary screen-reader").text
+            meeting_map["day"] = day
+
+            time_range = meeting.find_element(By.TAG_NAME, "span") # time range is nested spans
+            i = 0
+            start, end = "", ""
+            for span in time_range: #loops 4 times
+                if i == 0:
+                    start += span.getText()
+                    start += ":"
+                    i += 1
+                    continue
+                if i == 1:
+                    start += span.getText()
+                    i += 1
+                    continue
+                if i == 2:
+                    end += span.getText()
+                    end += ":"
+                    i += 1
+                if i == 3:
+                    end += span.getText()
+                    i += 1
+            meeting_map["start"] = start
+            meeting_map["end"] = end
+            meeting_times.append(meeting_map)
+        section = {crn, meeting_times}
+        all_sections.append(section)
     file.close()
     driver.quit()
     return {}
