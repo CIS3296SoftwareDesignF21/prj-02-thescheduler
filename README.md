@@ -32,7 +32,7 @@ https://github.com/CIS3296SoftwareDesignF21/prj-02-thescheduler/blob/main/readme
 
 # Personas #
 
-https://github.com/CIS3296SoftwareDesignF21/prj-02-thescheduler/blob/readme/main/readme/Personas.md
+https://github.com/CIS3296SoftwareDesignF21/prj-02-thescheduler/blob/main/readme/Personas.md
 
 # Trello #
 https://trello.com/b/iZgkH5XX/the-scheduler
