@@ -25,7 +25,10 @@
 
 
 ### Erik Rodriguez ###
-- 
+- Rebuilt scraper
+  - Now scrapes input by specific desired elements
+- Refactored loop to accept and scrape multiple courses 
+- Refactored scraper and loop output to be compatible with algorithm
 
 ### Ryan Babala ###
 - Modified Sifter (sorting algo)
