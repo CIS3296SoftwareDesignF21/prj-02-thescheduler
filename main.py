@@ -43,7 +43,9 @@ def course_select():
 def get_course(department, courses_input):
     course_list = courses_input.split(',')
     course_results = {"credits": "0", "sections": []}
-    all_sections = []
+    all_sections = {}
+    all_courses = {}
+    crn = 0
     for idx, course_number in enumerate(course_list):
         print("Course number = ", course_number)
         if course_number is None or course_number.isdigit() != True:
@@ -106,14 +108,15 @@ def get_course(department, courses_input):
             table_body = table.find_element(By.TAG_NAME, "tbody")
             rows = table_body.find_elements(By.TAG_NAME, "tr")
 
+
             # "//tagname[@Atrribute='Value']"
-            for row in rows:
+            for row in rows: #sections of a course
                 print("-------")
                 course_results["credits"] = row.find_element(By.XPATH, "//td[@data-property='creditHours']").text
 
-                crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']").get_attribute('innerHTML')
-                print("crn = ", crn)
-
+                #crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']").get_attribute('innerHTML')
+                #print("crn = ", crn)
+                crn += 1
                 meeting_times = []
                 prof_td = row.find_element(By.XPATH, "//td[@data-property='instructor']")
                 prof = prof_td.find_element(By.CLASS_NAME, "email").get_attribute('innerHTML') # Professor's name
@@ -166,12 +169,13 @@ def get_course(department, courses_input):
                         meeting_map = {"day": day, "start": start, "end": end, "instructor": prof}
                         meeting_times.append(meeting_map)
 
-                section = (crn, meeting_times)
-                all_sections.append(section)
+                all_sections[crn] = meeting_times
+                print(all_sections)
             file.close()
             driver.quit()
-            course_results["sections"] = all_sections
-            print(course_results)
+            all_courses[course_number] = all_sections
+            print("** All courses: ", all_courses)
+
     #######################################################################
     """
     
