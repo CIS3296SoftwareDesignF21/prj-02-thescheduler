@@ -101,7 +101,7 @@ def get_course(department, course_number1):
 
     # "//tagname[@Atrribute='Value']"
     for row in rows:
-        crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']")
+        crn = row.find_element(By.XPATH, "//td[@data-property='courseReferenceNumber']").text
         course_results["credits"] = row.find_element(By.XPATH, "//td[@data-property='creditHours']").text
 
         meeting_times = []
@@ -114,7 +114,9 @@ def get_course(department, course_number1):
         for meeting in meetings:
             meeting_map = {"day": "", "start": "", "end": "", "instructor": prof}
 
-            day = meeting.find_element(By.XPATH, "//div[@class='ui-pillbox-summary screen-reader']").text
+            day = meeting.find_element(By.XPATH, "//*[contains(@title,'Class on')]//descendant::div[1]").text
+            #day = dayPrelim.find_element(By.XPATH, "//div[@class='ui-pillbox-summary screen-reader']").text
+            print("Day = ", day)
             meeting_map["day"] = day
 
             time_range = meeting.find_element(By.TAG_NAME, "span") # time range is nested spans
@@ -134,9 +136,11 @@ def get_course(department, course_number1):
                     end += span.text
                     end += ":"
                     i += 1
+                    continue
                 if i == 3:
                     end += span.text
                     i += 1
+                    continue
             meeting_map["start"] = start
             meeting_map["end"] = end
             meeting_times.append(meeting_map)
