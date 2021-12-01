@@ -56,8 +56,8 @@ def get_course(department, courses_input):
             file = open("scraped_details.txt", "w")
             user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
             #PATH = os.path.join(sys.path[0], "chromedriver")
-            PATH = "/usr/local/bin/chromedriver"
-            #PATH = "C:\Program Files (x86)\chromedriver.exe"
+            #PATH = "/usr/local/bin/chromedriver"
+            PATH = "C:\Program Files (x86)\chromedriver.exe"
 
             chrome_options = Options()
             chrome_options.headless = True
@@ -195,6 +195,12 @@ def get_course(department, courses_input):
             driver.quit()
             course_results["sections"] = all_sections
             print(course_results)
+
+            '''
+            driver.get("http://thescheduler.pythonanywhere.com/")
+            output = driver.find_element_by_id("output")
+            output.send_keys(course_results)
+            '''
 
 
 def twilio():
