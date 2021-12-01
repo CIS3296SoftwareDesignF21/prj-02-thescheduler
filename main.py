@@ -42,11 +42,15 @@ def course_select():
 @app.route("/<department>&<courses_input>")
 def get_course(department, courses_input):
     course_list = courses_input.split(',')
-    course_results = {"credits": "0", "sections": []}
+    print("course list = ", course_list)
     all_sections = {}
+    print("all sections = ", all_sections)
     all_courses = {}
     crn = 0
     for idx, course_number in enumerate(course_list):
+        course_results = {"credits": "0", "sections": {}}
+        print()
+        print()
         print("Course number = ", course_number)
         if course_number is None or course_number.isdigit() != True:
             print("No course given")
@@ -108,6 +112,7 @@ def get_course(department, courses_input):
             table_body = table.find_element(By.TAG_NAME, "tbody")
             rows = table_body.find_elements(By.TAG_NAME, "tr")
 
+            section_results = {}
 
             # "//tagname[@Atrribute='Value']"
             for row in rows: #sections of a course
@@ -118,6 +123,7 @@ def get_course(department, courses_input):
                 #print("crn = ", crn)
                 crn += 1
                 meeting_times = []
+
                 prof_td = row.find_element(By.XPATH, "//td[@data-property='instructor']")
                 prof = prof_td.find_element(By.CLASS_NAME, "email").get_attribute('innerHTML') # Professor's name
                 print("Prof = ", prof)
@@ -169,11 +175,12 @@ def get_course(department, courses_input):
                         meeting_map = {"day": day, "start": start, "end": end, "instructor": prof}
                         meeting_times.append(meeting_map)
 
-                all_sections[crn] = meeting_times
-                print(all_sections)
+                section_results[crn] = meeting_times
+                print("section results = ", section_results)
+            course_results["sections"] = section_results
             file.close()
             driver.quit()
-            all_courses[course_number] = all_sections
+            all_courses[course_number] = course_results
             print("** All courses: ", all_courses)
 
     #######################################################################
