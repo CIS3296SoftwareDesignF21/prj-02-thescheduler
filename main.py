@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 from twilio.rest import Client
 import time
 import requests
@@ -55,10 +56,28 @@ def get_course(department, courses_input):
         if course_number is None or course_number.isdigit() != True:
             print("No course given")
         else:
-            file = open("scraped_details.txt", "w")
+            user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
             PATH = "/usr/local/bin/chromedriver"
             #PATH = "C:\Program Files (x86)\chromedriver.exe"
-            driver = webdriver.Chrome(PATH)
+
+            chrome_options = Options()
+            chrome_options.headless = True
+            chrome_options.add_argument(f'user-agent={user_agent}')
+            chrome_options.add_argument("--window-size=1920,1080")
+            chrome_options.add_argument('--ignore-certificate-errors')
+            chrome_options.add_argument('--allow-running-insecure-content')
+            chrome_options.add_argument("--disable-extensions")
+            chrome_options.add_argument("--proxy-server='direct://'")
+            chrome_options.add_argument("--proxy-bypass-list=*")
+            chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--no-sandbox')
+
+            driver = webdriver.Chrome(PATH, options = chrome_options)
+            #driver = webdriver.Chrome(PATH)
+
+
             # page = requests.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
             driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch")
             # driver.get("https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/courseSearch/courseSearch")
@@ -178,100 +197,11 @@ def get_course(department, courses_input):
                 section_results[crn] = meeting_times
                 print("section results = ", section_results)
             course_results["sections"] = section_results
-            file.close()
             driver.quit()
             all_courses[course_number] = course_results
             print("** All courses: ", all_courses)
     return render_template("output.html", final_results = all_courses)
-    #######################################################################
-    """
-    
-    time.sleep(1)
 
-    before_course_number = driver.find_element_by_class_name("odd")
-    before_course_number.click()
-
-    time.sleep(3)
-    course_number = driver.find_elements_by_class_name('odd')
-    # digit = course_number.text
-    for element in course_number:
-        # print (course_number.text)
-        # print(driver.find_element_by_class_name("readonly.add-row-selected").text)
-        print(element.text, file=file)
-
-    time.sleep(2)
-    course_number = driver.find_elements_by_class_name('even')
-    # digit = course_number.text
-    for element in course_number:
-        # print (course_number.text)
-        # print(driver.find_element_by_class_name("readonly.add-row-selected").text)
-        print(element.text, file=file)
-
-    time.sleep(10)  # waits 10 seconds
-    file.close()
-
-    driver.quit()
-    """
-
-    ''' THIS IS ERIKS QUE CODE
-    # Dictionary storing for course info
-    Schedule = {1: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
-                2: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
-                3: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''},
-                4: {'Title': '', 'Time': '', 'Instructor': '', 'Credits': ''}}
-
-    classQueue is a queue implemented using deque() who's elements consist of courses.
-    Classes are dict entries structured the following way: 
-
-    {'Subject': '', 'Course Number': ''}
-
-    Example: {'Subject': 'Computer & Information Science', 'Course Number': '3296'}
-
-
-    ###
-    !! Browse Courses page must be navigated to prior to loop !!
-
-    select = driver.find_element_by_class_name("select2-drop")
-    select.send_keys("2022 Spring")
-
-    term = driver.find_element_by_id("term-go")
-    term.click
-
-    def parseQueue(courseQueue):
-        while courseQueue:
-            currentClass = courseQueue.pop() #Store the next entry in memory, delete it from the queue
-            currentSubject = currentClass['Subject']
-            currentCourseNum = currentClass['Course Number']
-
-
-
-            subject = driver.find_element_by_id("select2-container")
-            subject.send_keys(currentSubject)
-
-            crnum = driver.find_element_by_name("txt_course_number_range_From")
-            crnum.send_keys(currentCourseNum)
-
-            search = driver.find_element_by_id("search-go")
-            search.click
-
-            # Experimental from here till end of loop
-            crsSelect = driver.find_element_by_class_name("form-button search-section-button")
-            crsSelect.click
-
-            #callCourseScraper
-
-            backToSearch = driver.find_element_by_class_name("form-button return-course-button")
-            backToSearch.click
-
-            searchAgain = driver.find_element_by_id("search-again-button")
-            searchAgain.click
-
-
-        return
-    # print(crs, crn, file = fo )
-    driver.quit()
-    # fo.close()
-    '''
 
 def twilio():
     TWILIO_SID = 'ACbf02fe253cef5d92aac22aa3bd5b1676'
