@@ -47,7 +47,18 @@
             <input type="submit" value="Submit"><br><br>
 
             <h2 align="center">Your Schedule</h2>
-
+            <table style="width:100%; text-align:center">
+            <tr>
+                <th>Course</th>
+                <th>Sections</th>
+            </tr>
+            {% for course, sections in final_results.items() %}
+                <tr>
+                    <td>{{course}}</td>
+                    <td>{{sections}}</td>
+                </tr>
+            {% endfor %}
+            </table>
         </form>
     </div>
 

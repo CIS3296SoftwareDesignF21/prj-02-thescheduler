@@ -107,7 +107,7 @@ def get_course(department, courses_input):
             view_sections = driver.find_element_by_class_name("form-button.search-section-button")
             view_sections.click()
 
-            time.sleep(1)
+            time.sleep(2)
             table = driver.find_element(By.ID, "table1")
             table_body = table.find_element(By.TAG_NAME, "tbody")
             rows = table_body.find_elements(By.TAG_NAME, "tr")
@@ -182,6 +182,7 @@ def get_course(department, courses_input):
             driver.quit()
             all_courses[course_number] = course_results
             print("** All courses: ", all_courses)
+    return render_template("output.html", final_results = all_courses)
     #######################################################################
     """
     
