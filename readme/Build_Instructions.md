@@ -5,7 +5,7 @@
 **Step 2**: Download additional libraries (Flask,Selenium,Twilio)
 
 **Side Step**: In order to test selenium code locally you will need to download the Chrome webdriver from here: 
-https://sites.google.com/chromium.org/driver/downloads and place it the locations listed below.
+https://sites.google.com/chromium.org/driver/downloads and place it the locations listed below. (Version 96)
             
                    -  Mac: /usr/local/bin/
                    
