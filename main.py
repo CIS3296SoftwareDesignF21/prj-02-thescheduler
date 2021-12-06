@@ -17,6 +17,16 @@ Used the following as a guide:
 https://www.techwithtim.net/tutorials/flask/http-methods-get-post/
 """
 
+"""
+Created By: 
+    Felix Rabinovich, 
+    Ethan Lewis, 
+    Abin Cheryian, 
+    Erik Adrian Rodriguez,
+    Dylan Dunda,
+    Ryan Joseph Babala
+"""
+
 @app.route("/")
 def home():
     return render_template("index.html")
